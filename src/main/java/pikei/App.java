@@ -8,12 +8,17 @@ public class App
     {
         //invoking the browser
         //Chrome -> Chrome Driver - > Methods
+        /* 
         System.setProperty("webdriver.chrome.driver","D:/development/Java Selenium Projects/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.facebook.com/");
         System.out.println(driver.getTitle());
+        System.out.println(driver.getCurrentUrl());
+        driver.close();
+        */
+        //JAVA RECAP
         
-
+        
 
     }
 }
