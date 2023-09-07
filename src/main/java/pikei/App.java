@@ -17,7 +17,11 @@ public class App
         driver.close();
         */
         //JAVA RECAP
-        
+        int num = 5;
+        String name = "Paul Kenneth";
+        int [] arr = {1,2,3,4,5};
+        System.out.println(arr[1]);
+
         
 
     }
