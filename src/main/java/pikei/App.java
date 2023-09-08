@@ -1,6 +1,10 @@
 package pikei;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import org.openqa.selenium.WebDriver;
 public class App 
 {
@@ -19,10 +23,21 @@ public class App
         //JAVA RECAP
         int num = 5;
         String name = "Paul Kenneth";
-        int [] arr = {1,2,3,4,5};
-        System.out.println(arr[1]);
+        int[] arr = {1,2,3,4,5};
+        String[] names = {"Paul", "Kenneth", "Ilan"};
+        int sum = 0;
 
-        
+        //adding array elements
+        for (int i=0; i < arr.length; i++)
+        {
+            sum+=arr[i];
+            System.out.println(sum);
+    
+        }
+        for (int j = 0; j <names.length; j++)
+        {
+            System.out.println(names[j]);
+        }
 
     }
 }
