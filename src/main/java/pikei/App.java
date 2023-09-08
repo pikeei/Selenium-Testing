@@ -16,6 +16,8 @@ public class App
     {   
         App something = new App();
         something.getData();
+        MethodSample somethingsomething = new MethodSample(); //Creating an object for our created java class that returns a string
+        somethingsomething.getUserData(); //accessing the method from the created object
         //invoking the browser
         //Chrome -> Chrome Driver - > Methods
         /* 
