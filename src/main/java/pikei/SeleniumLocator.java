@@ -23,7 +23,7 @@ public class SeleniumLocator
         System.out.println("Current Url is: " + driver.getCurrentUrl());
         driver.findElement(By.id("inputUsername")).sendKeys(username);
         driver.findElement(By.name("inputPassword")).sendKeys("Passwordsample123");
-        
+        driver.findElement(By.className("signInBtn")).click();
         
         
     }
