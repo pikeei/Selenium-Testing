@@ -33,6 +33,10 @@ public class SeleniumLocator
         //Tagname.classname also works
         
         System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
+        driver.findElement(By.linkText("Forgot your password?")).click();
+
+        //xpath //Tagname[@attribute='value'] for example  in selector hub: //input[placeholder='Name']
+        driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys(username);
 
         
         
