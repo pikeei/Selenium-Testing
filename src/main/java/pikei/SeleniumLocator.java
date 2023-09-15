@@ -17,6 +17,8 @@ public class SeleniumLocator
         //invoking the browser
         //Chrome -> Chrome Driver - > Methods
         String username ="PaulKenneth";
+        String email = username + "@gmail.com";
+        String phoneNumber = "09123456789";
         System.setProperty("webdriver.chrome.driver","D:/development/Java Selenium Projects/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -37,7 +39,13 @@ public class SeleniumLocator
 
         //xpath //Tagname[@attribute='value'] for example  in selector hub: //input[placeholder='Name']
         driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys(username);
-
+        driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys(email);
+        driver.findElement(By.cssSelector("input[placeholder='Email']")).clear();
+        driver.findElement(By.xpath("//input[@type='text'][2]")).sendKeys(email); //for practice index for unique xpath note: not recommended to use indexes
+        driver.findElement(By.cssSelector("input[placeholder='Phone Number']")).sendKeys(phoneNumber);
+        driver.findElement(By.cssSelector("input[type='text']:nth-child(4)")).clear(); //for practice index for unique css selector note: not recommended to use indexes
+        driver.findElement(By.xpath("//input[@placeholder='Phone Number']")).sendKeys(phoneNumber);
+        driver.findElement(By.cssSelector("button.reset-pwd-btn")).click();
         
         
         
