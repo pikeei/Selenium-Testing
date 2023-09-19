@@ -71,7 +71,9 @@ public class SeleniumLocator
         }
         System.out.println(driver.findElement(By.tagName("p")).getText()); //only used p since its the only available and first on the page. It works
         Assert.assertEquals((driver.findElement(By.tagName("p")).getText()),"You are successfully logged in.");
-    }
+        System.out.println(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText());
+        Assert.assertEquals(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText(), "Hello "+username+",");
+      
 }
-
+}
 
