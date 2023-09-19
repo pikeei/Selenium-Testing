@@ -1,6 +1,7 @@
 package pikei;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.lang.reflect.Array;
 import java.time.Duration;
@@ -61,6 +62,15 @@ public class SeleniumLocator
         //css selector is for example ('input[placeholder='value')
         //xpath is for example (//input[@placeholder='value']) see the syntax
         
+        //we're now logged in
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+        
+            e.printStackTrace();
+        }
+        System.out.println(driver.findElement(By.tagName("p")).getText()); //only used p since its the only available and first on the page. It works
+        Assert.assertEquals((driver.findElement(By.tagName("p")).getText()),"You are successfully logged in.");
     }
 }
 
