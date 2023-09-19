@@ -36,7 +36,7 @@ public class SeleniumLocator
         
         System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
         driver.findElement(By.linkText("Forgot your password?")).click();
-
+        
         //xpath //Tagname[@attribute='value'] for example  in selector hub: //input[placeholder='Name']
         driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys(username);
         driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys(email);
@@ -45,11 +45,20 @@ public class SeleniumLocator
         driver.findElement(By.cssSelector("input[placeholder='Phone Number']")).sendKeys(phoneNumber);
         driver.findElement(By.cssSelector("input[type='text']:nth-child(4)")).clear(); //for practice index for unique css selector note: not recommended to use indexes
         driver.findElement(By.xpath("//input[@placeholder='Phone Number']")).sendKeys(phoneNumber);
-        driver.findElement(By.cssSelector("button.reset-pwd-btn")).click();
+        driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
+        System.out.println(driver.findElement(By.cssSelector("p.infoMsg")).getText());
+        driver.findElement(By.xpath("//button[@class='go-to-login-btn']")).click();
+        driver.findElement(By.cssSelector("#inputUsername")).sendKeys(username);
+        driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy"); //when 'pass' is matched using '*' to make it regular expressoin
+        
+        //in contrary with line 52 for xpath
+        driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
+     
         
         
-        
-        
+        //takeaways
+        //css selector is for example ('input[placeholder='value')
+        //xpath is for example (//input[@placeholder='value']) see the syntax
         
     }
 }
