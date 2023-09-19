@@ -53,6 +53,7 @@ public class SeleniumLocator
         
         //in contrary with line 52 for xpath
         driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
+        //driver.findElement(By.xpath("//div[@class='forgot-pwd-container']/button[1]")).click();; //this one will also work, traversing from parent to child
      
         
         
