@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By.ByXPath;
 public class SeleniumLocator 
 {
     public static void main( String[] args )
@@ -52,6 +53,13 @@ public class SeleniumLocator
         driver.findElement(By.cssSelector("#inputUsername")).sendKeys(username);
         driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy"); //when 'pass' is matched using '*' to make it regular expressoin
         
+        
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+        
+            e.printStackTrace();
+        }
         //in contrary with line 52 for xpath
         driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
         //driver.findElement(By.xpath("//div[@class='forgot-pwd-container']/button[1]")).click();; //this one will also work, traversing from parent to child
@@ -73,7 +81,9 @@ public class SeleniumLocator
         Assert.assertEquals((driver.findElement(By.tagName("p")).getText()),"You are successfully logged in.");
         System.out.println(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText());
         Assert.assertEquals(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText(), "Hello "+username+",");
-      
+        //driver.findElement(By.xpath("//button[@class='logout-btn']")).click();// compared below
+        driver.findElement(By.xpath("//button[text()='Log Out']")).click(); //xpath syntax for clicking based on text AMAZING Unique to XPATH
+        driver.close();
 }
 }
 
