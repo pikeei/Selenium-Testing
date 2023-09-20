@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By.ByXPath;
+
+
 public class SeleniumLocator 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws InterruptedException
     {   
        
         //invoking the browser
@@ -47,19 +49,25 @@ public class SeleniumLocator
         driver.findElement(By.cssSelector("input[placeholder='Phone Number']")).sendKeys(phoneNumber);
         driver.findElement(By.cssSelector("input[type='text']:nth-child(4)")).clear(); //for practice index for unique css selector note: not recommended to use indexes
         driver.findElement(By.xpath("//input[@placeholder='Phone Number']")).sendKeys(phoneNumber);
+        Thread.sleep(3000);
         driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
-        System.out.println(driver.findElement(By.cssSelector("p.infoMsg")).getText());
+        Thread.sleep(3000); 
+
+        //taking the temporary password
+        String password = driver.findElement(By.cssSelector("p.infoMsg")).getText();
+        System.out.println(password);
+        String [] splittedPassword = password.split("'");
+        System.out.println(Arrays.toString(splittedPassword));
+        String forgotPassword = splittedPassword[1];
+         //[Please use temporary password , rahulshettyacademy,  to Login.] 0th index, 1th index, 2nd index, we need the 1th
+    
+        //logging in with the extracted username and password
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//button[@class='go-to-login-btn']")).click();
         driver.findElement(By.cssSelector("#inputUsername")).sendKeys(username);
-        driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy"); //when 'pass' is matched using '*' to make it regular expressoin
+        driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys(forgotPassword); //when 'pass' is matched using '*' to make it regular expressions
         
-        
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-        
-            e.printStackTrace();
-        }
+        Thread.sleep(3000);
         //in contrary with line 52 for xpath
         driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
         //driver.findElement(By.xpath("//div[@class='forgot-pwd-container']/button[1]")).click();; //this one will also work, traversing from parent to child
@@ -71,12 +79,7 @@ public class SeleniumLocator
         //xpath is for example (//input[@placeholder='value']) see the syntax
         
         //we're now logged in
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-        
-            e.printStackTrace();
-        }
+        Thread.sleep(3000);
         System.out.println(driver.findElement(By.tagName("p")).getText()); //only used p since its the only available and first on the page. It works
         Assert.assertEquals((driver.findElement(By.tagName("p")).getText()),"You are successfully logged in.");
         System.out.println(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText());
@@ -85,5 +88,17 @@ public class SeleniumLocator
         driver.findElement(By.xpath("//button[text()='Log Out']")).click(); //xpath syntax for clicking based on text AMAZING Unique to XPATH
         driver.close();
 }
+
+
+
+
+
 }
+
+
+
+
+
+
+
 
