@@ -14,7 +14,7 @@ import org.openqa.selenium.By.ByXPath;
 public class SeleniumLocator2 {
     public static void main( String[] args ) throws InterruptedException
     {   
-       
+        
         //invoking the browser
         //Chrome -> Chrome Driver - > Methods
         String username ="PaulKenneth";
@@ -23,10 +23,16 @@ public class SeleniumLocator2 {
         System.setProperty("webdriver.chrome.driver","D:/development/Java Selenium Projects/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        //Sibling to Parent in contrast with parent to sibling on other class
+        
         driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+        //// for traversing between siblings = header/div/button[@class='btn btn-primary'][1]/following-sibling::button[index]    
+        driver.findElement(By.xpath("//header/div/button[@class='btn btn-primary'][1]/following-sibling::button[1]")).click(); //header/div/button[1] also works
 
-}
+                
+        //Sibling to Parent in contrast with parent to sibling on other class
+        driver.findElement(By.xpath("//header/div/button[1]/parent::div/"));
+}       //parent to parent is also possible just add '/parent::nameoftag'
+        //then you can also traverse to child with the same logic 
 
 
 
