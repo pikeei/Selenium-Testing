@@ -22,6 +22,9 @@ public class WindowActivities {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("https://www.google.com");
+        driver.navigate().to("https://www.rahulshettyacademy/AutomationPracice");
+        driver.navigate().back();
+        driver.navigate().forward();
     }       
 
 }
