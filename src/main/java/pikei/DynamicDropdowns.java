@@ -6,6 +6,7 @@ import org.testng.Assert;
 import java.lang.reflect.Array;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.List;
 import java.util.ArrayList;
 import org.openqa.selenium.*;
 
@@ -28,10 +29,21 @@ public class DynamicDropdowns {
         driver.findElement(By.id("ctl00_mainContent_ddl_destinationStation1_CTXT")).click();
         //driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click(); we remove index, use diff approach 
         driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='MAA']")).click();
+        driver.findElement(By.xpath("//input[@id='autosuggest']")).sendKeys("IND");
+        Thread.sleep(3000);
+        List <WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+        for (WebElement option :options)
+        {
+            if(option.getText().equalsIgnoreCase("India"))
+            {
+                option.click();
+            }
 
+            }
+        }
     
     } 
 
-}
+
 
 
