@@ -23,11 +23,14 @@ public class DynamicDropdowns {
         driver.manage().window().maximize();
         driver.navigate().to("https://rahulshettyacademy.com/dropdownsPractise/"); 
         driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
-        driver.findElement(By.xpath("(//a[@value='MAA'])[1]")).click();
+        // driver.findElement(By.xpath("(//a[@value='BLR'])[1]")).click();  we remove index
+        driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_originStation1_CTNR']//a[@value='BLR']")).click(); //parent to child
         driver.findElement(By.id("ctl00_mainContent_ddl_destinationStation1_CTXT")).click();
-        driver.findElement(By.xpath("(//a[@value='BLR'])[2]")).click();
+        //driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click(); we remove index, use diff approach 
+        driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='MAA']")).click();
 
-    }       
+    
+    } 
 
 }
 
