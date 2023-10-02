@@ -42,8 +42,13 @@ public class DynamicDropdowns {
             }
 
             }
+
+        //counting the checkboxes
+        System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
         //driver.findElement(By.id("ctl00_mainContent_chk_SeniorCitizenDiscount")).click(); below is using expression
+        System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isEnabled());
         driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click(); //still works the same
+
         driver.findElement(By.xpath("//button[@class='ui-datepicker-trigger']")).click();
        
         }
