@@ -32,6 +32,7 @@ public class DynamicDropdowns {
         driver.findElement(By.xpath("//input[@id='autosuggest']")).sendKeys("IND");
         Thread.sleep(3000);
         List <WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+    
         for (WebElement option :options)
         {
             if(option.getText().equalsIgnoreCase("India"))
@@ -40,7 +41,14 @@ public class DynamicDropdowns {
             }
 
             }
+        driver.findElement(By.id("ctl00_mainContent_chk_SeniorCitizenDiscount")).click();
+        driver.findElement(By.xpath("//button[@class='ui-datepicker-trigger']")).click();
+       
         }
+    
+        
+        
+
     
     } 
 
