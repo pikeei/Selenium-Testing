@@ -38,10 +38,12 @@ public class DynamicDropdowns {
             if(option.getText().equalsIgnoreCase("India"))
             {
                 option.click();
+                break;
             }
 
             }
-        driver.findElement(By.id("ctl00_mainContent_chk_SeniorCitizenDiscount")).click();
+        //driver.findElement(By.id("ctl00_mainContent_chk_SeniorCitizenDiscount")).click(); below is using expression
+        driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click(); //still works the same
         driver.findElement(By.xpath("//button[@class='ui-datepicker-trigger']")).click();
        
         }
