@@ -32,6 +32,7 @@ public class DynamicDropdowns {
         driver.findElement(By.xpath("//input[@id='autosuggest']")).sendKeys("IND");
         Thread.sleep(3000);
         System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected()); //check if checkbox is selected
+        Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
         List <WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
     
         for (WebElement option :options)
