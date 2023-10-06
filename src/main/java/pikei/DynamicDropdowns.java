@@ -31,6 +31,7 @@ public class DynamicDropdowns {
         driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='MAA']")).click();
         driver.findElement(By.xpath("//input[@id='autosuggest']")).sendKeys("IND");
         Thread.sleep(3000);
+        System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected()); //check if checkbox is selected
         List <WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
     
         for (WebElement option :options)
@@ -46,9 +47,9 @@ public class DynamicDropdowns {
         //counting the checkboxes
         System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
         //driver.findElement(By.id("ctl00_mainContent_chk_SeniorCitizenDiscount")).click(); below is using expression
-        System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isEnabled());
-        driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click(); //still works the same
 
+        driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click(); //still works the same
+        System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
         driver.findElement(By.xpath("//button[@class='ui-datepicker-trigger']")).click();
        
         }
